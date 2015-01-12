@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-xs-8">
+    <h3>YOU SHOULD DO ...</h3>
+    <blockquote>
+      <p><%= thing.content %></p>
+      <footer>Suggested by - <cite title="Username"><%= thing.username %></cite></footer>
+    </blockquote>
+    <a href="/">New One</a>
+  </div>
+  <div class="col-xs-4">
+    <form ng-controller="ThingController" ng-submit="suggest()">
+      <h3>Make a suggestion</h3>
+      <div class="form-group">
+        <label for="title">Suggestion</label>
+        <textarea class="form-control" ng-model="thing.content" placeholder="Enter suggestion"></textarea>
+      </div>
+       <div class="form-group">
+        <label for="username">Your name (optional)</label>
+        <input id="username" type="text" class="form-control" ng-model="thing.username" placeholder="Enter your name (optional)"></input>
+      </div>
+      <button type="submit" class="btn btn-primary">Suggest</button>
+      <button type="button" class="btn btn-default" ng-click="reset">Reset</button>
+    </form>
+  </div>
+</div>
+
