@@ -48,10 +48,11 @@ module.exports.connections = {
     database: 'play'
   },
 
-  posgres: {
+  cleardb: {
     adapter: 'sails-postgresql',
-    host: 'localhost',
-    user: 'root',
+    host: 'mysql://b51c1c29950d3c:90ff6617@us-cdbr-iron-east-01.cleardb.net/heroku_104010851edc22a?reconnect=true
+',
+    user: '',
     password: '',
     database: 'play'
   },
