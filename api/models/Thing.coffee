@@ -4,43 +4,34 @@
  # @docs        :: http://sailsjs.org/#!documentation/models
 
 _ = require 'underscore'
-randomstring = require("randomstring");
+moment = require 'moment'
 
 attrs =
-  id:
-    type: 'integer'
-    unique: true
-    primaryKey: true
-  kind:
-    type: 'string',
-    required: true
-  content:
+  keys:
+    type: 'string', index: true
+  desc:
     type: 'text'
-    required: true
-  username:
+  quote:
     type: 'string'
-    required: true
-  title:
+  video:
     type: 'string'
-    required: true
-    unique: true
-    index: true
-
+  author:
+    type: 'string'
 
 ThingModel =
   attributes: attrs
-  random: (cb) ->
-    query = 'select title from thing order by rand() limit 1'
-    @query query, (err, thing) ->
-      cb err, thing[0]
+  random: (id, num, cb) ->
+    where = if id then "where id != #{id}" else ""
+    stmt = "select * from thing #{where} order by rand() limit #{num}"
+    @query stmt, (err, things) -> cb err, things
 
   beforeValidate: (values, cb) ->
-    _.extend values, {content: 'nothing'} if _.isEmpty values
-    _.defaults values, {username: 'anonymous', kind: 'text'}
+    _.extend values, {desc: 'nothing', likes: 0} if _.isEmpty values
 
-    salt = randomstring.generate 4
-    values.content = values.content.trim().replace(/\s+/g, ' ')
-    values.title = values.content.substr(0, 140).replace(/\s/g, '-') + '-' + salt
+    sails.log 'values: ', values
+    salt = moment().format 'YYYY-MMM-Do-HH:mm:ss'
+    values.desc = values.desc.trim().replace(/\s+/g, ' ')
+    values.keys = values.desc.substr(0, 60).replace(/\s/g, '-') + '-' + salt
     cb()
 
 module.exports = ThingModel

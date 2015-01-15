@@ -1,0 +1,48 @@
+.thing {
+  h1 {
+    font-size: 36px;
+
+    @media(max-width:767px){
+      font-size:30px;
+    }
+    color: rgb(186, 98, 98);
+  }
+
+  blockquote {
+    & > p {
+      font-size:30px;
+
+      @media(max-width:767px){
+        font-size:24px;
+      }
+
+      color: rgb(239, 192, 70);
+    }
+  }
+
+  .btn {
+    margin-bottom:20px;
+    margin-right:20px;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .list-unstyled a {
+    text-transform: capitalize;
+  }
+}
+

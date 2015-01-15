@@ -6,23 +6,34 @@
 _ = require 'underscore'
 
 ThingController =
-  none: (req, res) ->
-    Thing.random (err, thing) =>
+  random: (req, res) ->
+    id = req.param 'id'
+
+    Thing.random id, 1, (err, things) ->
       return res.serverError err if err
 
-      if _.isEmpty thing
-        Thing.create null, (err, thing) -> res.redirect "/thing/#{thing.title}"
+      if _.isEmpty things
+        Thing.create null, (err, thing) -> res.redirect "/thing/#{thing[0].keys}"
       else
-        res.redirect "/thing/#{thing.title}"
+        res.redirect "/thing/#{things[0].keys}"
 
   todo: (req, res) ->
-    title = req.param 'title'
-    Thing.findOne {title: title}, (err, thing) ->
-      data = thing: thing
-      res.view 'thing/todo', data
+    keys = req.param 'keys'
+    Thing.findOne {keys: keys}, (err, thing) ->
+      id = thing.id
+
+      Thing.random id, 5, (err, things) ->
+        data =
+          title: 'WTH should I do today?'
+          thing: thing
+          things: things.map (thing) ->
+            keys: thing.keys
+            title: thing.keys.replace(/(-\d{4}-\w+-.*)?$/, '').replace(/-/g, ' ') + ' ...'
+
+        res.view 'thing/todo', data
 
   create: (req, res) ->
-    thing = req.param('thing')
+    thing = req.param('data')
     Thing.create thing, (err, thing) ->
       return res.serverError err if err
 

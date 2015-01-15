@@ -7,6 +7,7 @@ a [Sails](http://sailsjs.org) application
 2. forever
 3. coffee-script, a[Coffee-Script](https://www.npmjs.com/package/coffee-script)
 4. underscore, a[Underscore](http://underscorejs.org/)
+5. moment, a[Moment](http://momentjs.com/)
 
 # development
 

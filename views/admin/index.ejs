@@ -1,0 +1,34 @@
+<div class="container">
+  <form ng-controller="AdminController" ng-submit="suggest()">
+    <h3>Make a suggestion</h3>
+
+    <div class="form-group">
+      <label for="types">Types</label>
+      <select id="types" ng-model="type" class="form-control">
+        <option ng-repeat="type in types" value="{{type}}">{{type}}</option>
+      </select>
+    </div>
+
+    <div ng-show="type == 'thing'">
+      <div class="form-group">
+        <label for="desc">Suggestion</label>
+        <textarea id="desc" class="form-control" ng-model="thing.desc" placeholder="Enter suggestion"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="username">Your name (optional)</label>
+        <input id="username" type="text" class="form-control" ng-model="thing.username" placeholder="Enter your name (optional)"></input>
+      </div>
+      <div class="form-group">
+        <label for="link">Link (optional)</label>
+        <input id="link" type="text" class="form-control" ng-model="thing.link" placeholder="Enter a web link (optional)"></input>
+      </div>
+      <div class="form-group">
+        <label for="video">Video (optional)</label>
+        <input id="video" type="text" class="form-control" ng-model="thing.video" placeholder="Enter a video link (optional)"></input>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Suggest</button>
+    <button type="button" class="btn btn-default" ng-click="reset">Reset</button>
+  </form>
+</div>
