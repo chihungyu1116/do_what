@@ -1,9 +1,13 @@
 {
   "name": "todo",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.0-1",
   "description": "a Sails application",
   "keywords": [],
+  "subdomain": "todo-app",
+  "engines": {
+    "node": "0.10.35"
+  },
   "dependencies": {
     "sails": "~0.10.5",
     "sails-disk": "~0.10.0",
@@ -28,8 +32,8 @@
     "moment": "2.9.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "debug": "node debug app.js"
+    "start": "sails lift"
+    // "debug": "node debug app.js"
   },
   "main": "app.js",
   "repository": {
