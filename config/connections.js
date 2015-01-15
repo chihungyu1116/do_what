@@ -48,6 +48,13 @@ module.exports.connections = {
     database: 'play'
   },
 
+  posgres: {
+    adapter: 'sails-postgresql',
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'play'
+  },
   /***************************************************************************
   *                                                                          *
   * MongoDB is the leading NoSQL database.                                   *
