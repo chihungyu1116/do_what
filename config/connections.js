@@ -52,7 +52,7 @@ module.exports.connections = {
   cleardb: {
     module: 'sails-mysql',
     adapter: 'sails-mysql',
-    url: 'mysql://b51c1c29950d3c:90ff6617@us-cdbr-iron-east-01.cleardb.net/heroku_104010851edc22a?reconnect=true',
+    host: 'us-cdbr-iron-east-01.cleardb.net',
     user: 'b51c1c29950d3c',
     password: '90ff6617',
     database: 'heroku_104010851edc22a'
