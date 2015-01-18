@@ -32,11 +32,11 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'post /suggest/thing':    'ThingController.create',
-  '/admin':                 'AdminController.index',
-  '/':                      'ThingController.random',
-  '/thing/random' :         'ThingController.random',
-  '/thing/:keys':          'ThingController.todo'
+  'post /suggest/thing':          'ThingController.create',
+  '/admin':                       'AdminController.index',
+  '/':                            'ThingController.random',
+  '/thing/random' :               'ThingController.random',
+  '/thing/:keys':                 'ThingController.todo'
 
   /***************************************************************************
   *                                                                          *
