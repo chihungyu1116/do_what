@@ -18,6 +18,6 @@ module.exports = {
    ***************************************************************************/
 
   models: {
-    connection: 'mysql'
+    connection: 'cleardb'
   },
 };
