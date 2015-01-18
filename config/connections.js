@@ -54,7 +54,8 @@ module.exports.connections = {
     adapter: 'sails-mysql',
     url: 'process.env.CLEARDB_DATABASE_URL',
     user: 'b51c1c29950d3c',
-    password: '90ff6617'
+    password: '90ff6617',
+    database: 'heroku_104010851edc22a'
   },
   /***************************************************************************
   *                                                                          *
