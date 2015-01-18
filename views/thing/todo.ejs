@@ -15,12 +15,12 @@
       <a rel="nofollow" class="btn btn-primary btn-lg" href="/thing/random?id=<%= thing.id %>" >Naah...</a>
     </div>
     <div class="col-sm-5">
-      <h2>You might also like</h2>
-      <ul class="list-unstyled">
+      <h2>Random Feeds</h2>
+      <ol>
         <% things.forEach(function (thing) { %>
           <li><a href="/thing/<%= thing.keys %>"><%= thing.title %></a></li>
         <% }); %>
-      </ul>
+      </ol>
     </div>
   </div>
 
